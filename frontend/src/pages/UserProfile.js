@@ -61,11 +61,7 @@ export default function UserProfile () {
 
     // Fetch user data from the backend when the component mounts
     axios
-      .get(`http://localhost:4000/api/users/userById?user_id=${user_id}`, {
-        headers: {
-          Authorization: getAuthCookie(),
-        },
-      })
+      .get(`http://localhost:4000/api/users/userById?user_id=${user_id}`)
       .then((response) => {
         if (response.data && response.data.length > 0) {
           setUser(response.data[0])
@@ -105,7 +101,6 @@ export default function UserProfile () {
     axios.put('http://localhost:4000/api/users/updateUser', new_user, {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': getAuthCookie()
       },
     })
       .then((response) => {
@@ -143,7 +138,6 @@ export default function UserProfile () {
     axios.put('http://localhost:4000/api/users/updateUser', new_user, {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': getAuthCookie()
       },
     })
       .then((response) => {
@@ -182,7 +176,6 @@ export default function UserProfile () {
     axios.put('http://localhost:4000/api/users/updateUser', new_user, {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': getAuthCookie()
       },
     })
       .then((response) => {
@@ -213,7 +206,6 @@ export default function UserProfile () {
     axios.put('http://localhost:4000/api/users/updateUser', new_user, {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': getAuthCookie()
       },
     })
       .then((response) => {
@@ -238,7 +230,6 @@ export default function UserProfile () {
     axios.delete(`http://localhost:4000/api/users/deleteUser`, {
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': getAuthCookie()
       },
     })
       .then((response) => {

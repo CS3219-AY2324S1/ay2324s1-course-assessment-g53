@@ -7,7 +7,6 @@ import Layout from "./pages/Layout"
 import UpdateUserProfilePage from "./pages/UpdateUserProfilePage"
 import SignupPage from "./pages/SignupPage"
 import RouteProtector from "./components/RouteProtector"
-import AdminView from "./pages/AdminView"
 import { useDispatch, useSelector } from "react-redux"
 import { authActions } from "./store"
 import useCookie from "./components/useCookie"
@@ -43,9 +42,8 @@ const App = () => {
         <Route path="signup" element={<SignupPage />} />
         <Route path="logout" element={<Logout />} />
         <Route path="/" element={<Layout />}>
-          {isLogin ? <Route path="questionpage" element={<QuestionPage />} /> : null}
-          {isLogin ? <Route path="profile" element={<UserProfile />} /> : null}
-          {is_admin ? <Route path="adminview" element={<AdminView />} /> : null}
+          <Route path="questionpage" element={<QuestionPage />} /> 
+          <Route path="profile" element={<UserProfile />} /> 
         </Route>
       </Routes>
     </BrowserRouter>
