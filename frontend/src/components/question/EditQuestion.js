@@ -113,9 +113,9 @@ const EditQuestion = (props) => {
               id="Categories" 
               margin="normal" 
               value={categories} 
-              onChange={event => setCategories(event.target.value)}
+              onChange={event => {setCategories(event.target.value)}}
               error={!!emptyCategoryMessage}
-              helperText={emptyCategoryMessage}
+              helperText={!categories && emptyCategoryMessage}
             />
             <FormControl fullWidth sx={{ marginTop: 2 }}>
                 <InputLabel id="complexity" error={!!emptyComplexityMessage}>Complexity</InputLabel>
@@ -125,7 +125,7 @@ const EditQuestion = (props) => {
                     value={complexity}
                     label="Complexity"
                     onChange={event => setComplexity(event.target.value)}
-                    error={!!emptyComplexityMessage}
+                    error={!complexity && !!emptyComplexityMessage}
                 >
                     <MenuItem value=""><em>--Please select--</em></MenuItem>
                     <MenuItem value={COMPLEXITY.EASY}>EASY</MenuItem>
@@ -146,7 +146,7 @@ const EditQuestion = (props) => {
                 value={description}
                 onChange={event => setDescription(event.target.value)}
                 error={!!emptyDescriptionMessage || !!duplicateDescriptionMessage}
-                helperText={emptyDescriptionMessage || duplicateDescriptionMessage}
+                helperText={ !description && emptyDescriptionMessage || duplicateDescriptionMessage}
                 />
             <Button
                 variant="contained"

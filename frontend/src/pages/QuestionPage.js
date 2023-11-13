@@ -118,12 +118,13 @@ function QuestionPage() {
             'Content-Type': 'application/json', 
             'Authorization': getAuthCookie()
         },
+        }).then(() => {
+            const res = [...questions, question].sort((a,b) => a.id - b.id)
+            setQuestions(res);
         }).catch(error => {
         console.error('Error:', error);
         return;
     })
-        const res = [...questions, question].sort((a,b) => a.id - b.id)
-        setQuestions(res);
     }
 
     async function deleteQuestion(questionToDelete, questions) {

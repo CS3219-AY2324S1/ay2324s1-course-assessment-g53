@@ -9,12 +9,12 @@ export async function checkAdmin(req, res, next) {
         }
         const response = await axios.get(userRoute, {headers :{authorization : token}});
         if (response.data == null) {
-            return res.status(400).send("Token not recognised. Please login again")
+            return res.status(401).send("Token not recognised. Please login again")
         }
         if (response.data.is_admin) {
             next();
         } else {
-            return res.status(400).send("You are not an admin, you do not have access to this resource")
+            return res.status(401).send("You are not an admin, you do not have access to this resource")
         }
         
         
