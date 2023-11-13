@@ -22,6 +22,11 @@ const NavBarList = () => {
         icon = {<PersonIcon />}
         href = "../profile"
       />
+      <NavBarItem
+        text = "View Users"
+        icon = {<DataObjectIcon />}
+        href = "../userView"
+      />
       
       <NavBarItem
         text = "Log Out"

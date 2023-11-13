@@ -7,6 +7,7 @@ import Layout from "./pages/Layout"
 import UpdateUserProfilePage from "./pages/UpdateUserProfilePage"
 import SignupPage from "./pages/SignupPage"
 import RouteProtector from "./components/RouteProtector"
+import UserView from "./pages/UserView"
 import { useDispatch, useSelector } from "react-redux"
 import { authActions } from "./store"
 import useCookie from "./components/useCookie"
@@ -44,6 +45,7 @@ const App = () => {
         <Route path="/" element={<Layout />}>
           <Route path="questionpage" element={<QuestionPage />} /> 
           <Route path="profile" element={<UserProfile />} /> 
+          <Route path="userview" element={<UserView />} />
         </Route>
       </Routes>
     </BrowserRouter>
