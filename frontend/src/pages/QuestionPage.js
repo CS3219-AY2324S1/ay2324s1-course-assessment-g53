@@ -80,7 +80,7 @@ function QuestionPage() {
     };
 
     const checkDuplicateDescription = (description, questions) => {
-        return questions.some((question) => question.desc === description);
+        return questions.some((question) => question.description === description);
     };
 
     const duplicateCheckers = {
@@ -99,7 +99,6 @@ function QuestionPage() {
         axios.post("http://localhost:8000/api/questions", question, {
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': getAuthCookie()
         },
         }).catch(error => {
         console.error('Error:', error);
@@ -112,11 +111,10 @@ function QuestionPage() {
 
     async function editQuestion(questionToEdit, title, description, categories, complexity, questions) {
         const id = questionToEdit.id;
-        const question = {id, title, desc: description, categories, complexity}
+        const question = {id, title, description: description, categories, complexity}
         await axios.put("http://localhost:8000/api/questions", question, {
         headers: {
-            'Content-Type': 'application/json', 
-            'Authorization': getAuthCookie()
+            'Content-Type': 'application/json'
         },
         }).catch(error => {
         console.error('Error:', error);
@@ -128,11 +126,7 @@ function QuestionPage() {
 
     async function deleteQuestion(questionToDelete, questions) {
         console.log(questionToDelete);
-        await axios.delete(`http://localhost:8000/api/questions/${questionToDelete.id}`, {
-            headers: {
-                'Authorization': getAuthCookie()
-            }
-        }).catch(error => {
+        await axios.delete(`http://localhost:8000/api/questions/${questionToDelete.id}`).catch(error => {
         console.error('Error:', error);
         return;
     })
@@ -147,11 +141,7 @@ function QuestionPage() {
 
     React.useEffect(() => {
         async function fetchQuestions() {
-        const response = await axios.get('http://localhost:8000/api/questions', {
-            headers: {
-                'Authorization': getAuthCookie()
-            }
-        })
+        const response = await axios.get('http://localhost:8000/api/questions')
         const data = response.data
         const questions = []
         for (var i in data) {

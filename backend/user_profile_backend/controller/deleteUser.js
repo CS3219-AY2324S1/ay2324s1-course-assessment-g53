@@ -1,7 +1,7 @@
 const pool = require('../database/db.js')
 
 const deleteUserByUserID = (request, response) => {
-    const id = request.body.user_data.user_id
+    const id = request.query.user_id
 
     pool.query('DELETE FROM users WHERE user_id = $1', [id], (error, results) => {
         if (error) {

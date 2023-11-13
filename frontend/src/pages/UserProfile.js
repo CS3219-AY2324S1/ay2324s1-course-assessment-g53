@@ -227,7 +227,7 @@ export default function UserProfile () {
   }
 
   const handleConfirmUnregister = () => {
-    axios.delete(`http://localhost:4000/api/users/deleteUser`, {
+    axios.delete(`http://localhost:4000/api/users/deleteUser?user_id=${user_id}`, {
       headers: {
         'Content-Type': 'application/json',
       },
