@@ -15,7 +15,6 @@ const updateUserInfo = require('../controller/updateUser').updateUserInfo
 
 const loginUser = require('../controller/getUser').loginUser
 
-const checkUSerAdmin = require('../controller/checkUserAdmin').checkUSerAdmin
 const setUserAdmin = require('../controller/setUserAdmin').setUserAdmin
 
 const app = express()
@@ -26,12 +25,11 @@ router.use(express.json())
 // Define your routes
 router.post('/login', loginUser)
 router.post('/createUser', createUser)
-router.get('/users', [validateUser], getUsers)
+router.get('/users', getUsers)
 router.get('/userById', getUserById)
-router.get('/userByName', [validateUser], getUserByName)
-router.put('/updateUser', [validateUser], updateUserInfo)
-router.delete('/deleteUser', [validateUser], deleteUserByUserID)
-router.get('/checkUserAdmin', [validateUser], checkUSerAdmin)
-router.put('/setUserAdmin', [validateUser], setUserAdmin)
+router.get('/userByName', getUserByName)
+router.put('/updateUser', updateUserInfo)
+router.delete('/deleteUser', deleteUserByUserID)
+router.put('/setUserAdmin', setUserAdmin)
 
 module.exports = router

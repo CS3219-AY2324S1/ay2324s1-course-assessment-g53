@@ -12,11 +12,10 @@ const getUsers = (request, response) => {
 
 const getUserById = (request, response) => {
 
-    const token = request.headers.authorization;
     let user_id;
 
     try {
-        user_id = verifyJsonWebToken(token).user_data.user_id;
+        user_id = request.query.user_id
     } catch(error) {
         console.log(error.message);
         return response.status(401).json({ error: 'Unauthorised' });

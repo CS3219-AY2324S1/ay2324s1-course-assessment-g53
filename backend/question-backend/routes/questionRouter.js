@@ -3,15 +3,14 @@ import { getQuestions } from "../controller/getQuestions.js";
 import { addQuestion } from "../controller/addQuestion.js";
 import { updateQuestion } from "../controller/updateQuestion.js";
 import { deleteQuestion } from "../controller/deleteQuestion.js";
-import { checkLogin } from "../middleware/checkLogin.js";
-import { checkAdmin } from "../middleware/checkAdmin.js";
+
 const router = express.Router();
-router.get("/", [checkLogin], getQuestions);
+router.get("/", getQuestions);
 
-router.post("/", [checkLogin, checkAdmin], addQuestion);
+router.post("/", addQuestion);
 
-router.put("/", [checkLogin, checkAdmin], updateQuestion);
+router.put("/", updateQuestion);
 
-router.delete("/:id", [checkLogin, checkAdmin], deleteQuestion);
+router.delete("/:id", deleteQuestion);
 
 export default router;
