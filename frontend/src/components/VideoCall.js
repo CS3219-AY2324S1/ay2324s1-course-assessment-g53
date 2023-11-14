@@ -128,8 +128,8 @@ const VideoCall = () => {
     videoContainerRef.current.innerHtml = "";
     console.log(videoContainerRef.current.innerHtml)
     for (let videoElem of videoElements) {
-      videoElem.style.width = '250px'
-      videoElem.style.height = '250px'
+      videoElem.style.width = '260px'
+      videoElem.style.height = '180px'
       videoElem.style.margin = '10px'
       videoContainerRef.current.appendChild(videoElem);
     }
@@ -138,8 +138,10 @@ const VideoCall = () => {
 
   return (
   <div>
+    <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
     <Button onClick={handleToggleVideo}>{showVideo ? "End Call" : "Start Call" }</Button>
-    {showVideo && <div id="videos" ref={videoContainerRef} style={{margin: '10px'}}></div>}
+    </div>
+    {showVideo && <div id="videos" ref={videoContainerRef} style={{display: "flex", alignItems: "center", justifyContent: "center"}}></div>}
   </div>
   
   );
