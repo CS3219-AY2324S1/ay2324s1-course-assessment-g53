@@ -103,7 +103,9 @@ const Room = () => {
           <Button variant="contained" color="primary" sx={{ width: "150px", height: "50px"}} onClick={handleClick}>
               New Question
           </Button>
-
+        </Paper>
+        <Paper elevation={4}style={{ margin:"0px", height: "30%"}}>
+          <VideoCall/>
         </Paper>
       </Grid>
 
@@ -132,9 +134,6 @@ const Room = () => {
 
       {/* Playground and Submit Section */}
       <Grid item style={{ flex: `0 0 ${100 - dividerPosition}%` , maxWidth: `${100 - dividerPosition}%`}}>
-        <Paper style={{ margin:"10px", height: "30%"}}>
-          <VideoCall/>
-        </Paper>
         <Paper elevation={3} style={{ height: 'calc(100vh - 64px)', display: 'flex', flexDirection: 'column' }}>
 
           {/* Playground */}
