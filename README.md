@@ -1,3 +1,5 @@
+![image](https://github.com/CS3219-AY2324S1/ay2324s1-course-assessment-g53/assets/62133038/152c7635-054e-4548-9afc-644081ec518f)
+
 # Welcome to Project peer prep created by g53!
 In the wake of the COVID-19 pandemic, companies are progressively shifting to online platforms for interviews. Traditional face-to-face interviews are being replaced with interviews conducted over platforms such as zoom, or MS Teams.
 In order to provide aspiring programmers with a platform to practise and prepare for such technical interviews, our team has implemented a web application – PeerPrep.
